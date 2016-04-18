@@ -1,0 +1,35 @@
+.navbar {
+  background-color: #272A2F;
+}
+
+.sidebar {
+  background-color: #272A2F;
+}
+
+.app-body {
+  background-color: #3D4148;
+}
+
+.main-page {
+  color: white;
+  padding: 20px;
+}
+
+.search-placeholder {
+  color: red;
+  position: absolute;
+  font-size: 12px;
+  font-style: italic;
+  left: 7px;
+  right: auto;
+  line-height: 20px;
+
+}
+
+.chapters {
+  color: white;
+}
+
+.chapterview-header {
+  width: 100%;
+}
