@@ -8,7 +8,7 @@ Using AngularJS and Angular Mobile UI, it is designed for viewing on a desktop /
 
 <h2>Future Development</h2>
 
-There are a number of items I am looking forward to adding in the future.
+There are a number of items I am looking forward to adding in the future:
 
 <ul>
   <li>Login / Logout Capabilities</li>
