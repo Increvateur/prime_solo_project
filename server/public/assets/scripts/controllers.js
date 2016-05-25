@@ -1,4 +1,12 @@
 myApp.controller("MainController", ["$scope", "MangaModule", "$location", function($scope, MangaModule, $location) {
+  $scope.isCollapsed = true;
+
+  MangaModule.getSeriesNames()
+    .then(function(data) {
+      $scope.seriesNames = data;
+      console.log("Controller ->", data);
+    });
+
 
 }]);
 
@@ -15,10 +23,7 @@ myApp.controller("SeriesController", ["$scope", "MangaModule", "$location", func
 myApp.controller("ChaptersController", ["$scope", "MangaModule", "$routeParams", function($scope, MangaModule, $routeParams) {
   console.log("ChaptersController loaded!");
 
-  var chapterID = {"route": $routeParams.seriesId};
-  console.log(chapterID);
-
-  MangaModule.getChapterInfo(chapterID)
+  MangaModule.getChapterInfo($routeParams)
     .then(function(data) {
       $scope.chapterNames = data;
       $scope.chapterList = data.chapter_layout;
@@ -27,12 +32,12 @@ myApp.controller("ChaptersController", ["$scope", "MangaModule", "$routeParams",
 }]);
 
 myApp.controller("ChapterViewController", ["$scope", "MangaModule", "$routeParams", function($scope, MangaModule, $routeParams) {
-  console.log("ChapterViewController loaded!");
+  console.log("ChapterViewController loaded!", $routeParams);
 
-  // $scope.getSeries = MangaModule.getChapters($routeParams.seriesId)
-  //   .then(function(data) {
-  //     $scope.chapterNames = data;
-  //     console.log("Controller ->", data);
-  //   });
+  MangaModule.getChapters($routeParams)
+    .then(function(data) {
+      $scope.chapterInfo = data;
+      console.log("Controller ->", data);
+    });
 
 }]);

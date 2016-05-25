@@ -2,82 +2,62 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <title>Manga Viewer</title>
+    <title>MangaStorm</title>
     <!-- STYLES -->
-      <!-- ANGULAR MATERIAL -->
-    <!-- <link rel="stylesheet" href="/assets/vendors/angular-material.min.css" /> -->
-
-      <!-- ANGULAR MOBILE UI -->
-    <link rel="stylesheet" href="/assets/vendors/mobile-angular-ui-base.min.css" />
-    <link rel="stylesheet" href="/assets/vendors/mobile-angular-ui-desktop.min.css" />
-    <link rel="stylesheet" href="/assets/vendors/mobile-angular-ui-hover.min.css" />
-
-      <!-- MY CUSTOM CSS (YUCK!) -->
+      <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/vendors/bootstrap/css/bootstrap-theme.min.css" />
+      <!-- MY CUSTOM CSS -->
     <link rel="stylesheet" href="/assets/styles/style.css" />
 
     <!-- SCRIPTS -->
       <!-- ANGULAR -->
-    <script type="text/javascript" src="/assets/vendors/angular.min.js"></script>
-    <script type="text/javascript" src="/assets/vendors/angular-route.min.js"></script>
-
-      <!-- ANGULAR MATERIAL -->
-    <!-- <script type="text/javascript" src="/assets/vendors/angular-animate.min.js"></script> -->
-    <!-- <script type="text/javascript" src="/assets/vendors/angular-aria.min.js"></script> -->
-    <!-- <script type="text/javascript" src="/assets/vendors/angular-messages.js"></script> -->
-    <!-- <script type="text/javascript" src="/assets/vendors/angular-material.min.js"></script> -->
-
-      <!-- ANGULAR MOBILE UI -->
-    <script type="text/javascript" src="/assets/vendors/mobile-angular-ui.min.js"></script>
-    <script type="text/javascript" src="/assets/vendors/mobile-angular-ui.gestures.min.js"></script>
-
-      <!-- MY JAVASCRIPT NIGHTMARES -->
+    <script type="text/javascript" src="/assets/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/assets/vendors/angular/angular-route.min.js"></script>
+      <!-- ANGULAR UI BOOTSTRAP -->
+    <script type="text/javascript" src="/assets/vendors/angular-ui-bootstrap/ui-bootstrap-tpls.js"></script>
+      <!-- MY JAVASCRIPT -->
     <script type="text/javascript" src="/assets/scripts/app.js"></script>
     <script type="text/javascript" src="/assets/scripts/controllers.js"></script>
     <script type="text/javascript" src="/assets/scripts/factories.js"></script>
 
   </head>
   <body ng-controller="MainController">
-    <div class="sidebar sidebar-left">
-      <div class="scrollable">
-        <h1 class="scrollable-header app-name">Manga Reader</h1>
-        <div class="scrollable-content">
-          <div class="list-group" ui-turn-off="uiSidebarLeft">
-            <a class="list-group-item" href="#main">Home
-              <i class="fa fa-chevron-right pull-right"></i></a>
-            <a class="list-group-item" href="#series">Available Series
-              <i class="fa fa-chevron-right pull-right"></i></a>
-            <a class="list-group-item" href="#favorites">Favorite Series
-              <i class="fa fa-chevron-right pull-right"></i></a>
-              <p></p>
-            <input type="text" class="form-control" placeholder="Search Manga Series" />
-            <div class="search-placeholder">Not Implemented Yet</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="app" ui-swipe-right="Ui.turnOn('uiSidebarLeft')" ui-swipe-left="Ui.turnOff('uiSidebarLeft')">
-      <div class="navbar navbar-app navbar-absolute-top">
-        <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          Manga Reader
-        </div>
-        <div class="btn-group pull-left">
-          <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
-            <i class="fa fa-bars"></i> Menu
-          </div>
-        </div>
-      </div>
-      <div class="navbar navbar-app navbar-absolute-bottom">
-        <div class="navbar-brand navbar-brand-left">
-          <!-- Copyright &copy 2016 - Matthew Keymer -->
-        </div>
-        <div class="btn-group pull-right">
-          <a href="#about" class="btn btn-navbar">About</a>
-        </div>
-      </div>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+      <div class="container-fluid navbar-top-container">
+        <div class="navbar-header">
+          <button type="button" ng-click="isCollapsed = !isCollapsed" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+          <a class="navbar-brand logo" href="#main" ng-click="isCollapsed = true">MangaStorm
+            <!-- <img alt="Brand" src="..."> -->
+      </a>
 
-      <div class="app-body" ng-view>
+        </div>
+        <div class="collapse navbar-collapse" uib-collapse="isCollapsed" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#series" ng-click="isCollapsed = true">Series</a></li>
+          <li><a href="#series" ng-click="isCollapsed = true">Favorites</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Login</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+      <div class="view" ng-view>
 
       </div>
-    </div>
+
   </body>
 </html>

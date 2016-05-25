@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var mongoURI = "mongodb://localhost/manga_reader";
+var mongoURI = "mongodb://localhost/manga";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on("error", function(err) {

@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ["ngRoute", "mobile-angular-ui"]);
+var myApp = angular.module("myApp", ["ngRoute", "ui.bootstrap"]);
 
 myApp.config(["$routeProvider", function($routeProvider){
   $routeProvider.
@@ -19,10 +19,12 @@ myApp.config(["$routeProvider", function($routeProvider){
 
     when("/series/:seriesId/:chapterId", {
       templateUrl: "/views/routes/chapterview.html",
-      controller: "ChapterViewController"
+      controller: "ChaptersController"
     }).
 
     otherwise({
       redirectTo: '/main'
+
     });
+
 }]);
