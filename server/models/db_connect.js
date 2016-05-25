@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var mongoURI = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/manga';
+var mongoURI = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || process.env.MONGODB_URI || 'mongodb://localhost/manga';
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on("error", function(err) {
